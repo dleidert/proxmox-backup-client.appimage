@@ -20,7 +20,7 @@ jobs:
         run: |
           apt-get update
           apt-get install -y wget
-          wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
+          wget -nv https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
           chmod +x /usr/local/bin/appimage-builder
       - uses: actions/checkout@v3
       - name: Build AppImage
