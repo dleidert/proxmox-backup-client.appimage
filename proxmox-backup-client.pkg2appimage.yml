@@ -16,7 +16,7 @@ ingredients:
     - qrencode
     - libfuse3-3
     - libfuse2
-    - libssl3
+    - libssl1.1
 
 script:
   - mkdir -p ./bin/
