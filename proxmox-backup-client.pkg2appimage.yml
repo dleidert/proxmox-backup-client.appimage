@@ -1,0 +1,37 @@
+# vim: set ts=2 sw=2 ai si et:
+---
+
+app: proxmox-backup-client
+union: true
+# binpatch: true # doesn't work either due to glibc version mismatch
+
+ingredients:
+  dist: bullseye
+  sources:
+    - deb http://download.proxmox.com/debian/pbs-client bullseye main
+    - deb http://deb.debian.org/debian bullseye main
+    - deb http://deb.debian.org/debian bullseye-updates main
+    - deb http://deb.debian.org/debian-security bullseye/updates main
+  packages:
+    - qrencode
+    - libfuse3-3
+    - libfuse2
+    - libssl3
+
+script:
+  - mkdir -p ./bin/
+  - cp -a ./usr/bin/proxmox-backup-client bin/proxmox-backup-client
+  - mkdir -p ./usr/share/applications/
+  - cat > ./usr/share/applications/proxmox-backup-client.desktop <<\EOF
+  - [Desktop Entry]
+  - Name=Proxmox Backup Client
+  - Exec=proxmox-backup-client
+  - Type=Application
+  - Icon=proxmox-backup-client
+  - Categories=Development;
+  - Terminal=false
+  - EOF
+  - cp -a ./usr/share/applications/proxmox-backup-client.desktop .
+  - mkdir -p ./usr/share/icons/
+  - cp ../../proxmox-backup-client.png ./usr/share/icons/
+  - cp ./usr/share/icons/proxmox-backup-client.png .
