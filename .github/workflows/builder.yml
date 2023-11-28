@@ -12,7 +12,9 @@ on:
 
 jobs:
   build:
-    runs-on: debian-bookworm
+    runs-on: ubuntu-latest
+    container:
+      image: debian:bookworm
     steps:
       - name: Install dependencies
         run: |
