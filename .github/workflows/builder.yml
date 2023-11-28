@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
+          apt-get update
+          apt-get install -y wget
           wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O ./appimage-builder
           chmod +x ./appimage-builder
       - uses: actions/checkout@v3
