@@ -4,6 +4,8 @@
 version: 1
 script:
   - rm -rf $TARGET_APPDIR | true
+  - mkdir -p $TARGET_APPDIR/usr/share/pixmaps/
+  - cp $TARGET_APPDIR/../proxmox-backup-client.png $TARGET_APPDIR/usr/share/pixmaps/
 
 AppDir:
   path: ./AppDir
@@ -11,7 +13,7 @@ AppDir:
   app_info:
     id: proxmox-backup-client
     name: proxmox-backup-client
-    icon: utilities-terminal
+    icon: proxmox-backup-client
     version: '3.0.4'
     exec: usr/bin/proxmox-backup-client
     exec_args: $@
@@ -23,7 +25,7 @@ AppDir:
 
   apt:
     arch:
-     - amd64
+      - amd64
     allow_unauthenticated: true
     sources:
       - sourceline: 'deb http://download.proxmox.com/debian/pbs-client bookworm main'
