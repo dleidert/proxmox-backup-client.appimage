@@ -1,0 +1,50 @@
+# vim: set ts=2 sw=2 ai si et:
+---
+
+version: 1
+script:
+  - rm -rf $TARGET_APPDIR | true
+  - mkdir -p $TARGET_APPDIR/usr/share/pixmaps/
+  - cp $TARGET_APPDIR/../proxmox-backup-client.png $TARGET_APPDIR/usr/share/pixmaps/
+
+AppDir:
+  path: ./AppDir
+
+  app_info:
+    id: proxmox-backup-client
+    name: proxmox-backup-client
+    icon: proxmox-backup-client
+    version: '3.0.4'
+    exec: usr/bin/proxmox-backup-client
+    exec_args: $@
+
+  runtime:
+    arch:
+      - x86_64
+    version: continuous
+
+  apt:
+    arch:
+      - amd64
+    allow_unauthenticated: true
+    sources:
+      - sourceline: 'deb http://download.proxmox.com/debian/pbs-client bookworm main'
+      - sourceline: 'deb http://deb.debian.org/debian bookworm main'
+      - sourceline: 'deb http://deb.debian.org/debian bookworm-updates main'
+      - sourceline: 'deb http://deb.debian.org/debian-security bookworm-security main'
+    include:
+      - proxmox-backup-client
+      - libidn2-0
+      - fuse3
+      - dash
+
+  test:
+    debian:
+      image: 'appimagecrafters/tests-env:debian-stable'
+      command: './AppRun version'
+    ubuntu:
+      image: 'appimagecrafters/tests-env:ubuntu-bionic'
+      command: './AppRun version'
+
+AppImage:
+  arch: x86_64

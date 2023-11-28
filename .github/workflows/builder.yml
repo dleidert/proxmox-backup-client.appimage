@@ -27,9 +27,13 @@ jobs:
           sudo wget -nv https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
           sudo chmod +x /usr/local/bin/appimage-builder
 
-      - name: Build AppImage
+      - name: Build AppImage from Bullseye version
         run: |
-          appimage-builder --recipe proxmox-backup-client.appimage-builder.yml --skip-tests
+          appimage-builder --recipe proxmox-backup-client.bullseye.yml --skip-tests
+
+      - name: Build AppImage from Bookworm version
+        run: |
+          appimage-builder --recipe proxmox-backup-client.bookworm.yml --skip-tests
 
       - name: Upload AppImage
         uses: actions/upload-artifact@v2
