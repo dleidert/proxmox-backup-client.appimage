@@ -12,7 +12,7 @@ AppDir:
     id: proxmox-backup-client
     name: proxmox-backup-client
     icon: utilities-terminal
-    version: '2.4.3'
+    version: '3.0.4'
     exec: usr/bin/proxmox-backup-client
     exec_args: $@
 
@@ -26,10 +26,10 @@ AppDir:
      - amd64
     allow_unauthenticated: true
     sources:
-      - sourceline: 'deb http://download.proxmox.com/debian/pbs-client bullseye main'
-      - sourceline: 'deb http://deb.debian.org/debian bullseye main'
-      - sourceline: 'deb http://deb.debian.org/debian bullseye-updates main'
-      - sourceline: 'deb http://deb.debian.org/debian-security bullseye-security main'
+      - sourceline: 'deb http://download.proxmox.com/debian/pbs-client bookworm main'
+      - sourceline: 'deb http://deb.debian.org/debian bookworm main'
+      - sourceline: 'deb http://deb.debian.org/debian bookworm-updates main'
+      - sourceline: 'deb http://deb.debian.org/debian-security bookworm-security main'
     include:
       - proxmox-backup-client
       - libidn2-0

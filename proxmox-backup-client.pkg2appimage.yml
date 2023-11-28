@@ -6,12 +6,12 @@ union: true
 # binpatch: true # doesn't work either due to glibc version mismatch
 
 ingredients:
-  dist: bullseye
+  dist: bookworm
   sources:
-    - deb http://download.proxmox.com/debian/pbs-client bullseye main
-    - deb http://deb.debian.org/debian bullseye main
-    - deb http://deb.debian.org/debian bullseye-updates main
-    - deb http://deb.debian.org/debian-security bullseye/updates main
+    - deb http://download.proxmox.com/debian/pbs-client bookworm main
+    - deb http://deb.debian.org/debian bookworm main
+    - deb http://deb.debian.org/debian bookworm-updates main
+    - deb http://deb.debian.org/debian-security bookworm/updates main
   packages:
     - qrencode
     - libfuse3-3
