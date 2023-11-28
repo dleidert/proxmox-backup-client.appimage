@@ -29,7 +29,7 @@ build:appimage:
     - wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O ./appimage-builder
     - chmod 755 ./appimage-builder
   script:
-    - ./appimage-builder proxmox-backup-client.appimage-builder.yml
+    - ./appimage-builder --recipe proxmox-backup-client.appimage-builder.yml
   artifacts:
     expire_in: 4 weeks
     paths:
