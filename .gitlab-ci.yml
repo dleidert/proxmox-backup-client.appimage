@@ -1,0 +1,37 @@
+# vim: set ts=2 sw=2 ai si et:
+---
+
+image: debian:bookworm
+
+variables:
+  DEBIAN_FRONTEND: noninteractive
+  GIT_SUBMODULE_STRATEGY: recursive
+
+cache:
+  paths: []
+
+test:lint:
+  stage: test
+  before_script:
+    - apt-get update -y
+    - apt-get dist-upgrade -y
+    - apt-get install -y --install-recommends yamllint
+  script:
+    - yamllint *.yml
+
+build:appimage:
+  stage: build
+  variables:
+  before_script:
+    - apt-get update -y
+    - apt-get dist-upgrade -y
+    - apt-get install -y --install-recommends ca-certificates wget fuse3 libfuse2
+    - wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O ./appimage-builder
+    - chmod 755 ./appimage-builder
+  script:
+    - ./appimage-builder proxmox-backup-client.appimage-builder.yml
+  artifacts:
+    expire_in: 4 weeks
+    paths:
+      - proxmox-backup-client*.AppImage
+    when: on-success
