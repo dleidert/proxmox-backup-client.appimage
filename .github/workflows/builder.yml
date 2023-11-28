@@ -10,26 +10,29 @@ on:
     tags:
       - '!**'
 
+  workflow_dispatch:
+
 jobs:
-  build:
+  build-appimage:
+    name: "Build AppImage"
     runs-on: ubuntu-latest
-    container:
-      image: debian:bookworm
     steps:
-      - name: Install dependencies
-        run: |
-          sudo wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
-          sudo chmod +x /usr/local/bin/appimage-builder
+
       - uses: actions/checkout@v3
-      - name: Get source
+
+      - name: Install build tools
         run: |
-          git config --global --add safe.directory $PWD
-          git fetch --prune --unshallow
+          sudo apt-get update
+          sudo apt-get install libfuse2 squashfs-tools
+          sudo wget -nv https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
+          sudo chmod +x /usr/local/bin/appimage-builder
+
       - name: Build AppImage
         run: |
-          appimage-builder proxmox-backup-client.appimage-builder.yml
+          appimage-builder --recipe proxmox-backup-client.appimage-builder.yml --skip-tests
+
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2.1.4
+        uses: actions/upload-artifact@v2
         with:
           name: proxmox-backup-client
           path: 'proxmox-backup-client*.AppImage*'
