@@ -18,8 +18,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O /usr/local/bin/appimage-builder
-          sudo chmod +x /usr/local/bin/appimage-builder
+          wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O ./appimage-builder
+          chmod +x ./appimage-builder
       - uses: actions/checkout@v3
       - name: Get source
         run: |
@@ -27,7 +27,7 @@ jobs:
           git fetch --prune --unshallow
       - name: Build AppImage
         run: |
-          appimage-builder proxmox-backup-client.appimage-builder.yml
+          ./appimage-builder --recipe proxmox-backup-client.appimage-builder.yml --skip-tests
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2.1.4
         with:
