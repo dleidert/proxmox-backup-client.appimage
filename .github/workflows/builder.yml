@@ -23,10 +23,6 @@ jobs:
           wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O ./appimage-builder
           chmod +x ./appimage-builder
       - uses: actions/checkout@v3
-      - name: Get source
-        run: |
-          git config --global --add safe.directory $PWD
-          git fetch --prune --unshallow
       - name: Build AppImage
         run: |
           ./appimage-builder --recipe proxmox-backup-client.appimage-builder.yml --skip-tests
