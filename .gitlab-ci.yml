@@ -34,4 +34,4 @@ build:appimage:
     expire_in: 4 weeks
     paths:
       - proxmox-backup-client*.AppImage
-    when: on-success
+    when: on_success
