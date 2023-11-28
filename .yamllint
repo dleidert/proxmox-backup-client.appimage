@@ -1,0 +1,7 @@
+# vim: set ts=2 sw=2 ai si et:
+---
+
+rules:
+  line-length:
+    level: warning
+
