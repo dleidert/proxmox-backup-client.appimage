@@ -40,6 +40,11 @@ chmod +x /usr/local/sbin/proxmox-backup-client
 proxmox-backup-client version
 ```
 
+Please note that an AppImage requires FUSE to be present and usable. All
+supported (and even current) releases of Debian and Ubuntu provide FUSE and
+`libfuse2`. Don't replace `fuse3` by `fuse`, though, on recent distributions,
+where you shouldn't require the AppImage anyway!
+
 ## LICENSE
 
 The files are released into the public domain. Please note that the image
