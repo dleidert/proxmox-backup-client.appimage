@@ -34,6 +34,7 @@ executable. Then use it as you would use the binaries provided via the Debian
 package:
 
 ```
+apt-get update && apt-get install libfuse2
 wget -O /usr/local/sbin/proxmox-backup-client https://github.com/dleidert/proxmox-backup-client.appimage/releases/download/Continuous/proxmox-backup-client-2-x86_64.AppImage
 chmod +x /usr/local/sbin/proxmox-backup-client
 proxmox-backup-client version
