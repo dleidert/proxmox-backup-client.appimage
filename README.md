@@ -34,7 +34,7 @@ executable. Then use it as you would use the binaries provided via the Debian
 package:
 
 ```
-wget -O /usr/local/sbin/proxmox-backup-client https://github.com/dleidert/proxmox-backup-client.appimage/releases/download/Continuous/proxmox-backup-client-2.4.3-x86_64.AppImage
+wget -O /usr/local/sbin/proxmox-backup-client https://github.com/dleidert/proxmox-backup-client.appimage/releases/download/Continuous/proxmox-backup-client-2-x86_64.AppImage
 chmod +x /usr/local/sbin/proxmox-backup-client
 proxmox-backup-client version
 ```
