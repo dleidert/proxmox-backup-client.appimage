@@ -17,7 +17,7 @@ not matching the requirements of the packaged binaries,
 promises to package the glibc as well. I tried it and it seems to work at least
 with the Bullseye version (2.x). The AppImage created with the Bookworm version
 (3.x), unfortunately, fails with a [segmentation
-fault](AppImageCrafters/appimage-builder#335).
+fault](https://github.com/AppImageCrafters/appimage-builder/issues/335).
 
 To build the AppImage file, get the [`appimage-builder`
 binary](https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage)
