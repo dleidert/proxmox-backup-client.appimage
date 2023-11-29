@@ -27,14 +27,6 @@ binary](https://github.com/AppImageCrafters/appimage-builder/releases/download/v
 ./appimage-builder-1.1.0-x86_64.AppImage --recipe proxmox-backup-client.bullseye.yml --skip-tests
 ```
 
-For historical reasons:
-
-With `pkg2appimage` do:
-
-```
-./pkg2appimage--x86_64.AppImage proxmox-backup-client.yml
-```
-
 ## USAGE
 
 Download the appimage file, put it into `/usr/local/sbin/`, and make it
