@@ -14,7 +14,7 @@ AppDir:
     id: proxmox-backup-client
     name: proxmox-backup-client
     icon: proxmox-backup-client
-    version: '3.1.2'
+    version: '3.2.7'
     exec: usr/bin/proxmox-backup-client
     exec_args: $@
 
