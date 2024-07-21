@@ -30,12 +30,12 @@ jobs:
       - name: Build AppImage from Bullseye version
         run: |
           appimage-builder --recipe proxmox-backup-client.bullseye.yml --skip-tests
-          cp proxmox-backup-client-2.4.3-x86_64.AppImage proxmox-backup-client-2-x86_64.AppImage
+          cp proxmox-backup-client-2.*-x86_64.AppImage proxmox-backup-client-2-x86_64.AppImage
 
       - name: Build AppImage from Bookworm version
         run: |
           appimage-builder --recipe proxmox-backup-client.bookworm.yml --skip-tests
-          cp proxmox-backup-client-3.0.4-x86_64.AppImage proxmox-backup-client-3-x86_64.AppImage
+          cp proxmox-backup-client-3.*-x86_64.AppImage proxmox-backup-client-3-x86_64.AppImage
 
       - name: Upload AppImage
         uses: actions/upload-artifact@v2
